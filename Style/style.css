@@ -1,0 +1,385 @@
+/* พื้นหลังและฟอนต์ */
+body {
+  background: radial-gradient(circle at center, #0e0e25 0%, #06060f 100%);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+
+  /* position: sticky; */
+  top: 0;
+  z-index: 999;
+  padding: 10px 0;
+}
+
+/* Nav link */
+.navbar-nav .nav-link {
+  color: rgb(255, 255, 255);
+  position: relative;
+  padding-bottom: 10px; /* เพิ่มพื้นที่ให้จุดแสดง */
+}
+
+/* จุด • แบบเดิม ลบออก */
+.navbar-nav .nav-link.active::after {
+  content: ''; /* ลบจุดจาก CSS */
+}
+
+.navbar-nav .nav-link.active {
+  color: #CBACF9; /* สีของลิงก์ active */
+  font-weight: 600; /* เน้นหนาขึ้น ถ้าต้องการ */
+}
+
+/* สร้างจุดใหม่ใน JS แทน เพื่ออนิเมชัน */
+.active-dot {
+  position: absolute;
+  bottom: -10px;  /* ขยับขึ้นมาให้อยู่ในแถบ */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: #4bc6ff;
+  pointer-events: none;
+
+  animation: bounceDot 1.5s infinite ease-in-out;
+}
+
+@keyframes bounceDot {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+    opacity: 0.6;
+  }
+}
+
+
+/* Card img Profilo */
+.custom-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+/* ทำให้ภาพพอดีกับด้านซ้าย */
+.object-fit-cover {
+  object-fit: cover;
+}
+
+a.custom-card:hover {
+  transform: scale(1.01);
+  text-decoration: none;
+}
+
+
+
+.last-updated {
+  color: white; /* หรือสีที่คุณต้องการ */
+  font-size: 16px;
+  opacity: 0.8; /* ถ้าอยากให้ดูอ่อน ๆ */
+  padding-left: 5px;
+}
+.custom-card:hover {
+  transform: scale(1.02); /* ขยายเล็กน้อยตอน hover */
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.img-hover-effect {
+  filter: grayscale(100%) brightness(70%);
+  transition: filter 0.6s ease;
+}
+
+.img-hover-effect:hover {
+  filter: grayscale(0%) brightness(100%);
+}
+.social-icon {
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #f06595; /* สีชมพูอ่อน หรือเปลี่ยนเป็นสีที่คุณต้องการ */
+  transform: scale(1.2);
+}
+/* เอฟเฟกต์เริ่มต้น: ซีด จางลง */
+.img-hover-inside-card {
+  filter: grayscale(100%) brightness(70%);
+  transition: filter 0.5s ease;
+}
+
+/* เมื่อ hover ที่การ์ด: ภาพกลับมาชัด */
+.card-hover-effect:hover .img-hover-inside-card {
+  filter: grayscale(0%) brightness(100%);
+}
+
+
+/* Link web minmin */
+
+.full-img-card {
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.full-img-card:hover {
+  transform: scale(1.01);
+}
+
+.zoom-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 62%; /* 👈 แสดงส่วนบนของรูป */
+  transition: transform 0.5s ease;
+}
+
+.full-img-card:hover .zoom-img {
+  transform: scale(1.05);
+}
+
+.card-img-overlay {
+  background: rgba(0, 0, 0, 0.3); /* เลเยอร์ดำบาง ๆ ด้านล่าง */
+  transition: background 0.3s ease;
+}
+
+.fade-in-text h5 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.full-img-card:hover .fade-in-text h5 {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card-link-wrapper {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+
+/* ข้อความส่วนบน */
+.subtitle {
+  letter-spacing: 0.2rem;
+  font-size: 0.75rem;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ปุ่ม */
+.btn-outline-light {
+  border-radius: 12px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(-2px);
+}
+
+/* การ์ดสกิล */
+.skill-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: scale(1.03);
+}
+
+.skill-card img {
+  object-fit: cover;
+  height: 180px;
+  width: 100%;
+}
+
+.card-img-overlay {
+  height: 100%;
+  transition: 0.3s ease;
+}
+
+.skill-card:hover .card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.github-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ส่วน Project Card */
+.project-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+.project-card img {
+  object-fit: cover;
+  height: 240px;
+  width: 100%;
+  display: block;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-card .card-body {
+  position: relative;
+  z-index: 2;
+  padding-top: 1.2rem;
+}
+
+/* Custom Project Card */
+.custom-project-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #1e1e2f;
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease;
+}
+
+.custom-project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-img {
+  height: 240px;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.overlay-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 240px;
+  width: 100%;
+  color: white;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.tech-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.tech-icons img,
+.tech-icons i {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.live-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #a98fff;
+  text-decoration: none;
+  font-weight: bold;
+}
