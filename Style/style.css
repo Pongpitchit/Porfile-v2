@@ -154,7 +154,7 @@ a.custom-card:hover {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: center 62%; /* 👈 แสดงส่วนบนของรูป */
+  object-position: center 45%; /* 👈 แสดงส่วนบนของรูป */
   transition: transform 0.5s ease;
 }
 
