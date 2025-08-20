@@ -10,16 +10,46 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="Style/style.css" />
+
   <style>
     @media (max-width: 576px) {
-      th:nth-child(4), td:nth-child(4) {
+
+      th:nth-child(4),
+      td:nth-child(4) {
         display: none;
       }
+    }
+
+    body {
+      background: #0e0e25;
+      color: #fff
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, .06);
+      border-radius: 12px;
+      max-width: 480px;
+      margin: 16px auto 0
+    }
+
+    .table-dark td,
+    .table-dark th {
+      vertical-align: middle
+    }
+
+    .btn-fn {
+      padding: .1rem .4rem;
+      font-size: .85rem
+    }
+
+    .modal-title {
+      color: #fff;
     }
   </style>
 </head>
 
 <body>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand justify-content-center mt-3">
     <ul class="navbar-nav">
@@ -29,97 +59,234 @@
       <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
       <li class="nav-item">
         <button class="nav-link btn btn-link" data-bs-toggle="modal" data-bs-target="#scheduleModal">
-         Schedule
+          Schedule
         </button>
       </li>
     </ul>
   </nav>
 
-  <!-- Modal ตารางเรียน -->
-  <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+  <!-- ===== Modal: SCHEDULE TABLES ===== -->
+  <div class="modal fade" id="scheduleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-white">
         <div class="modal-header">
-          <h5 class="modal-title" id="scheduleModalLabel">📚 Class Schedule – 
-Term 1, Academic Year 1/2568</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title">FIRST SEMESTER 2025/68 ( S68,T1 )</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <table class="table table-bordered text-center align-middle">
-            <thead class="table-primary">
-              <tr>
-                <th>Day</th>
-                <th>Time</th>
-                <th>Code</th>
-                <th>Class Schedule</th>
-                <th>Room</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Monday</td><td>09:00–12:00</td><td>DIT312</td><td>Application for Container Development</td><td>5-336</td></tr>
-              <tr><td>Monday</td><td>13:00–16:00</td><td>DIT205</td><td>Web Application Development</td><td>5-336</td></tr>
-              <tr><td>Tuesday</td><td>09:00–12:00</td><td>DIT204</td><td>Information System Project Management</td><td>8N-105</td></tr>
-              <tr><td>Tuesday</td><td>13:00–16:00</td><td>DIT202</td><td>System Analysis and Design</td><td>5-335</td></tr>
-              <tr><td>Wednesday</td><td>09:00–12:00</td><td>DIT203</td><td>Data Communication and Networks</td><td>5-336</td></tr>
-              <tr><td>Wednesday</td><td>16:00–19:00</td><td>DIT311</td><td>Embedded Full Stack Programming</td><td>5-336</td></tr>
-              <tr><td>Friday</td><td>13:00–16:00</td><td>DIT201</td><td>Database Systems</td><td>5-335</td></tr>
-            </tbody>
-          </table>
+
+          <h6 class="mb-2">Class Schedule – S68, T1 </h6>
+          <div class="table-responsive">
+            <table class="table table-dark table-striped align-middle">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Time</th>
+                  <th>Code</th>
+                  <th>Room</th>
+                  <th class="text-center">db</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monday</td>
+                  <td>09:00–11:50</td>
+                  <td>DIT312</td>
+                  <td>5-336</td>
+                  <td class="text-center"><button class="btn btn-secondary btn-fn"
+                      onclick="openEntry('S68,T1','DIT312')">Fn</button></td>
+                </tr>
+                <tr>
+                  <td>Monday</td>
+                  <td>12:30–15:50</td>
+                  <td>DIT205</td>
+                  <td>5-336</td>
+                  <td class="text-center"><button class="btn btn-secondary btn-fn"
+                      onclick="openEntry('S68,T1','DIT205')">Fn</button></td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td>09:00–11:50</td>
+                  <td>DIT204</td>
+                  <td>8N-105</td>
+                  <td class="text-center"><button class="btn btn-secondary btn-fn"
+                      onclick="openEntry('S68,T1','DIT204')">Fn</button></td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td>13:00–15:50</td>
+                  <td>DIT202</td>
+                  <td>5-336</td>
+                  <td class="text-center"><button class="btn btn-secondary btn-fn"
+                      onclick="openEntry('S68,T1','DIT202')">Fn</button></td>
+                </tr>
+                <tr>
+                  <td>Wednesday</td>
+                  <td>09:00–11:50</td>
+                  <td>DIT203</td>
+                  <td>5-336</td>
+                  <td class="text-center"><button class="btn btn-secondary btn-fn"
+                      onclick="openEntry('S68,T1','DIT203')">Fn</button></td>
+                </tr>
+                <tr>
+                  <td>Wednesday</td>
+                  <td>16:00–18:50</td>
+                  <td>DIT311</td>
+                  <td>5-335</td>
+                  <td class="text-center"><button class="btn btn-secondary btn-fn"
+                      onclick="openEntry('S68,T1','DIT311')">Fn</button></td>
+                </tr>
+                <tr>
+                  <td>Friday</td>
+                  <td>13:00–15:50</td>
+                  <td>DIT201</td>
+                  <td>5-335</td>
+                  <td class="text-center"><button class="btn btn-secondary btn-fn"
+                      onclick="openEntry('S68,T1','DIT201')">Fn</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Home  -->
-  <section id="home">
-    <div class="container d-flex justify-content-center">
-      <div class="card custom-card mb-3">
-        <div class="row g-0 flex-column flex-md-row">
-          <div class="col-md-4">
-            <img src="img/Proflie.jpeg" class="img-fluid rounded-start img-hover-effect" alt=".Proflio">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Pongpitchit Sittipakdee</h5>
-              <p class="card-text" style="padding-top: 5px;">
-                This faculty is another faculty that can be used to continue working in many careers and various places
-                of work, whether it be graphics work,
-                editing, programmers, analysts, work system designers. Web developers and many more. Easy to work with
-                various computers.
-              </p>
-              <p class="card-textprofile text-end mt-auto">
-                <small class="last-updated">
-                  Last updated DAY : 26/5/2568 ago
-                  <a href="https://www.instagram.com/besttpopxlarr/" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram" style="font-size: 32px;"></i>
-                  </a>
-                  <a href="https://github.com/Pongpitchit" target="_blank" class="social-icon">
-                    <i class="fab fa-github" style="font-size: 32px; padding-left: 8px;"></i>
-                  </a>
-                </small>
-                </a>
-              </p>
+  <!-- ===== Modal: ENTRY FORM ===== -->
+  <div class="modal fade" id="entryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title">บันทึกข้อมูลเข้าเรียน/งาน/สอบ</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"
+            onclick="returnToSchedule()"></button>
+        </div>
+        <div class="modal-body">
+          <form id="entryForm" class="row g-3">
+            <div class="col-12">
+              <label class="form-label">WEEK</label>
+              <select id="week" name="week" class="form-select" required></select>
             </div>
-          </div>
+
+            <div class="col-12">
+              <label class="form-label">DIT</label>
+              <select id="subject" name="subject" class="form-select" required>
+                <option value="">- เลือกวิชา -</option>
+                <option>DIT201</option>
+                <option>DIT202</option>
+                <option>DIT203</option>
+                <option>DIT204</option>
+                <option>DIT205</option>
+                <option>DIT311</option>
+                <option>DIT312</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">สถานะมาเรียน</label>
+              <select id="attendance" name="attendance" class="form-select">
+                <option value="มาเรียน">มาเรียน</option>
+                <option value="เข้าสาย">เข้าสาย</option>
+                <option value="ขาด">ขาด</option>
+                <option value="ลา">ลา</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">งาน</label>
+              <input id="assignment" name="assignment" type="text" class="form-control"
+                placeholder="เช่น ส่งงานบทที่ 3">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">สอบ</label>
+              <select id="exam" name="exam" class="form-select">
+                <option value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-light" onclick="returnToSchedule()">ย้อนกลับ</button>
+          <button class="btn btn-primary" onclick="saveData()">บันทึก</button>
         </div>
       </div>
     </div>
-    <!-- Link web minmin -->
-    <div class="container d-flex justify-content-center">
-      <a href="https://luvminmin-six.vercel.app/" target="_blank" class="card-link-wrapper">
-        <div class="card full-img-card text-white overflow-hidden">
-          <img src="img\Webmin.JPG" class="card-img zoom-img" alt="Web Minmin">
-          <div class="card-img-overlay d-flex align-items-end justify-content-center fade-in-text">
-            <h5 class="card-title mb-3">Web Minmin</h5>
-          </div>
-        </div>
-      </a>
-    </div>
+  </div>
 
-  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxdmWClhFOxdDWWcXKGKpDUSCNxP0A0BBMmfYnquwuMF9XEp65AkCGum-dg49xzhm6eeg/exec"; // เปลี่ยนเป็น URL ของคุณ
+
+    const weekSel = document.getElementById('week');
+    for (let i = 1; i <= 15; i++) {
+      const opt = document.createElement('option');
+      opt.value = `Week ${i}`;
+      opt.textContent = `Week ${i}`;
+      weekSel.appendChild(opt);
+    }
+
+    let currentSemester = "";
+    const scheduleModal = new bootstrap.Modal(document.getElementById('scheduleModal'));
+    const entryModal = new bootstrap.Modal(document.getElementById('entryModal'));
+
+    function openEntry(semester, subjectCode) {
+      currentSemester = semester;
+      const subjectEl = document.getElementById('subject');
+      const assignmentEl = document.getElementById('assignment');
+      const examEl = document.getElementById('exam');
+      const attendanceEl = document.getElementById('attendance');
+
+      subjectEl.value = subjectCode || "";
+      assignmentEl.value = "";
+      attendanceEl.value = "มาเรียน";
+      weekSel.selectedIndex = 0;
+
+      scheduleModal.hide();
+      entryModal.show();
+    }
+
+    function returnToSchedule() {
+      entryModal.hide();
+      scheduleModal.show();
+    }
+
+    async function saveData() {
+      const payload = {
+        timestamp: new Date().toISOString(),
+        semester: currentSemester,
+        week: document.getElementById('week').value,
+        subject: document.getElementById('subject').value,
+        attendance: document.getElementById('attendance').value,
+        assignment: document.getElementById('assignment').value.trim(),
+        exam: document.getElementById('exam').value
+      };
+
+      if (!payload.subject) {
+        alert("กรุณาเลือกวิชา (DIT)");
+        return;
+      }
+
+      try {
+        const res = await fetch(scriptURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const text = await res.text();
+        alert(text);
+        returnToSchedule();
+      } catch (err) {
+        console.error(err);
+        alert("บันทึกไม่สำเร็จ ตรวจสอบ Console");
+      }
+    }
+  </script>
 
   <!-- Home Section -->
   <section>
@@ -273,7 +440,8 @@ import { module1, module2 } from 'modulePath'; -->
                 <i class="ri-robot-2-fill" style="font-size: 32px; padding: 5px;"></i>
               </div>
               <div class="d-flex justify-content-end mt-auto">
-                <a href="https://github.com/Pongpitchit/Opencv-linebot-API " target=_blank class="text-decoration-none text-info">Check Live Site ↗</a>
+                <a href="https://github.com/Pongpitchit/Opencv-linebot-API " target=_blank
+                  class="text-decoration-none text-info">Check Live Site ↗</a>
               </div>
             </div>
           </div>
@@ -316,13 +484,15 @@ import { module1, module2 } from 'modulePath'; -->
         </div>
     </section>
 
-<!-- Footer -->
-  <footer class="text-center py-4 text-muted small">
-    © 2025 Pongpitchit Sittipakdee. All rights reserved.
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="JS/script.js"></script>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-muted small">
+      © 2025 Pongpitchit Sittipakdee. All rights reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
 </body>
 
 </html>
